@@ -1,0 +1,5 @@
+package-lock.json
+.nova/Configuration.json
+public/.DS_Store
+.DS_Store
+node_modules/
