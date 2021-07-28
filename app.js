@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
 const _ = require("lodash");
@@ -7,7 +8,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 const mongoose = require("mongoose");
-mongoose.connect("mongodb://localhost:27017/todolistDB", {
+mongoose.connect(process.env.DATABASE_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
@@ -122,6 +123,6 @@ app.get("/:customName", (req, res) => {
   );
 });
 
-app.listen(3000, function () {
-  console.log("Server started on port 3000");
+app.listen(process.env.VALUE, function () {
+  console.log("Server started.");
 });
